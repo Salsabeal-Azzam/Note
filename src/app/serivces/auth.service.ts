@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  baseUrl:string = "https://route-egypt-api.herokuapp.com/"
+  baseUrl:string = "https://route-movies-api.vercel.app/"
 
   constructor(private _HttpClient:HttpClient , private _Router:Router) {
 
@@ -48,5 +48,8 @@ export class AuthService {
   {
 
     return this._HttpClient.post(`${this.baseUrl}signin` , obj)
+  }
+  getAllUsers():Observable <any>{
+    return this._HttpClient.get(`${this.baseUrl}getAllUsers?page=1`)
   }
 }
